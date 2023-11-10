@@ -1,0 +1,226 @@
+.main-btn {
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--white);
+  border-radius: 8px;
+  background: linear-gradient(90deg, #1e4bd2 0%, #008bf9 102.5%);
+  padding: 16px 52px;
+  transition: background-color ease-in-out 0.3s;
+  outline: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  &.main-btn_gray {
+    color: var(--accent-retail-blue);
+    background: var(--light-grey);
+  }
+
+  &:hover {
+    color: var(--white);
+    background: var(--buttons-hover-gradient, linear-gradient(90deg, #0a2896 0%, #004cf8 102.5%));
+  }
+
+  &:focus {
+    color: var(--white);
+    background: var(--accent-retail-blue, #0a2896);
+  }
+}
+
+.main-btn:disabled,
+.main-btn[disabled] {
+  background: var(--light-grey, #f3f7fa);
+  color: var(--input-grey);
+}
+
+.main-input {
+  min-height: 52px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 1px solid var(--stroke-grey, #dce0eb);
+  background: var(--white, #fff);
+  color: var(--dark-grey, #6b7683);
+  outline: none;
+
+  &:focus,
+  &:focus-visible,
+  &:active {
+    color: var(--accent-medium-blue, #1e4bd2);
+    border: 2px solid var(--accent-medium-blue, #1e4bd2);
+  }
+}
+
+.main-radio-label {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--stroke-grey, #dce0eb);
+  background: var(--white, #fff);
+  user-select: none;
+  cursor: pointer;
+}
+
+.chips-radio-label {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--light-grey, #f3f7fa);
+  user-select: none;
+  cursor: pointer;
+}
+
+.main-checkbox {
+  width: 15px;
+  height: 15px;
+  background-color: var(--grey);
+  border-radius: 3px;
+  margin: 0;
+}
+
+.main-checkbox-container {
+  position: relative;
+  display: inline;
+  padding-left: 30px;
+  user-select: none;
+  cursor: pointer;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: var(--grey);
+    border-radius: 3px;
+  }
+}
+
+.controls-radio_chips {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 8px;
+
+  input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+
+  .icon {
+    vertical-align: middle;
+  }
+
+  input[type="radio"]:checked + label {
+    color: var(--white, #fff);
+    background: var(--accent-medium-blue);
+
+    .icon {
+      path {
+        fill: var(--white);
+      }
+    }
+  }
+}
+
+.controls-date {
+  h3 {
+    margin-bottom: 8px;
+  }
+}
+
+.controls-date_container {
+  display: flex;
+  gap: 12px;
+
+  input:nth-child(1) {
+    max-width: 165px;
+  }
+
+  input:nth-child(2) {
+    max-width: 120px;
+  }
+}
+
+/* On mouse-over, add a grey background color */
+.main-checkbox-container:hover input ~ .checkmark {
+  background-color: var(--dark-grey);
+}
+
+/* When the checkbox is checked, add a blue background */
+.main-checkbox-container input:checked ~ .checkmark {
+  background-color: var(--accent-medium-blue);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Style the checkmark/indicator */
+.main-checkbox-container .checkmark::after {
+  left: 7px;
+  top: 2px;
+  width: 4px;
+  height: 11px;
+  border: solid var(--white);
+  border-radius: 1px;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+/* Show the checkmark when checked */
+.main-checkbox-container input:checked ~ .checkmark::after {
+  display: block;
+}
+
+.close {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+.close:hover {
+  opacity: 1;
+}
+
+.close::before,
+.close::after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 20px;
+  width: 2px;
+  background-color: #333;
+}
+
+.close::before {
+  transform: rotate(45deg);
+}
+
+.close::after {
+  transform: rotate(-45deg);
+}
+
+.days {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+  .text-sm {
+    color: var(--dark-grey);
+  }
+}
