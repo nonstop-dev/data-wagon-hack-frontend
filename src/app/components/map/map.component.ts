@@ -38,7 +38,7 @@ export class MapComponent implements OnInit, OnChanges {
   // L.tileLayer.provider('Stadia.AlidadeSmooth').addTo(this.map);
 
   private stationIcon = new L.Icon({
-    iconUrl: 'assets/ic_round-train.svg',
+    iconUrl: 'assets/train_station.svg',
     iconSize: [50, 50],
     iconAnchor: [25, 25],
   });
