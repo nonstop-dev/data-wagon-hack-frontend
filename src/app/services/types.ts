@@ -19,4 +19,6 @@ export interface IWagon {
   trainNumber: string;
   wagonDestination: number;
   wagonId: number;
+  latitude: number;
+  longitude: number;
 }
