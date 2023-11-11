@@ -1,1 +1,73 @@
-<p>search-card works!</p>
+<div class="container">
+  <div class="search">
+    <h2>Найти вагон</h2>
+    <input
+      type="text"
+      name="search"
+      id="search"
+      placeholder="Введите номер, название станции"
+      class="main-input text-md"
+      tabindex="0" />
+    <h2>Отображение на карте</h2>
+    <div class="controls-checkbox">
+      <label class="main-checkbox-container text-md" for="loading" tabindex="0">
+        Показывать загруженность станций
+        <input type="checkbox" id="loading" name="loading" class="main-checkbox" />
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <h3 class="wagon-type">Тип вагона</h3>
+    <div class="controls-radio_chips">
+      <input type="radio" id="dumpcar" name="dumpcar" value="dumpcar" />
+      <label for="dumpcar" class="chips-radio-label text-sm" tabindex="0">Думпкар</label>
+      <input type="radio" id="conveyor" name="conveyor" value="conveyor" />
+      <label for="conveyor" class="chips-radio-label text-sm" tabindex="0">Транспортер</label>
+      <input type="radio" id="gondola" name="gondola" value="gondola" />
+      <label for="gondola" class="chips-radio-label text-sm" tabindex="0">Полувагон</label>
+      <input type="radio" id="indoor" name="indoor" value="indoor" />
+      <label for="indoor" class="chips-radio-label text-sm" tabindex="0">Крытый</label>
+      <input type="radio" id="tank" name="tank" value="tank" />
+      <label for="tank" class="chips-radio-label text-sm" tabindex="0">Цистерна</label>
+      <input type="radio" id="hopper" name="hopper" value="hopper" />
+      <label for="hopper" class="chips-radio-label text-sm" tabindex="0">Хоппер</label>
+    </div>
+    <h3>Статус вагона</h3>
+    <div class="status">
+      <div class="controls-checkbox">
+        <label class="main-checkbox-container text-md" for="processing" tabindex="0">
+          В дороге
+          <input type="checkbox" id="processing" name="processing" class="main-checkbox" />
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="controls-checkbox">
+        <label class="main-checkbox-container text-md" for="empty" tabindex="0">
+          Пустой
+          <input type="checkbox" id="empty" name="empty" class="main-checkbox" />
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="controls-checkbox">
+        <label class="main-checkbox-container text-md" for="station" tabindex="0">
+          На станции
+          <input type="checkbox" id="station" name="station" class="main-checkbox" />
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="controls-checkbox">
+        <label class="main-checkbox-container text-md" for="repair" tabindex="0">
+          В ремонте
+          <input type="checkbox" id="repair" name="repair" class="main-checkbox" />
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="controls-checkbox">
+        <label class="main-checkbox-container text-md" for="waiting" tabindex="0">
+          Ожидает загрузки
+          <input type="checkbox" id="waiting" name="waiting" class="main-checkbox" />
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>

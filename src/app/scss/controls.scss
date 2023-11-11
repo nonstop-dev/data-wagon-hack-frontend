@@ -7,7 +7,7 @@
   color: var(--white);
   border-radius: 8px;
   background: linear-gradient(90deg, #1e4bd2 0%, #008bf9 102.5%);
-  padding: 16px 52px;
+  padding: 12px 20px;
   transition: background-color ease-in-out 0.3s;
   outline: none;
   border: 1px solid transparent;
@@ -41,14 +41,14 @@
   border-radius: 8px;
   border: 1px solid var(--stroke-grey, #dce0eb);
   background: var(--white, #fff);
-  color: var(--dark-grey, #6b7683);
+  color: var(--grey-300, #bbb2af);
   outline: none;
 
   &:focus,
   &:focus-visible,
   &:active {
-    color: var(--accent-medium-blue, #1e4bd2);
-    border: 2px solid var(--accent-medium-blue, #1e4bd2);
+    color: var(--orange, #eb5525);
+    border: 2px solid var(--orange, #eb5525);
   }
 }
 
@@ -72,7 +72,7 @@
 .main-checkbox {
   width: 15px;
   height: 15px;
-  background-color: var(--grey);
+  background-color: var(--grey-100);
   border-radius: 3px;
   margin: 0;
 }
@@ -94,11 +94,11 @@
 
   .checkmark {
     position: absolute;
-    top: 2px;
+    top: 0;
     left: 0;
     height: 20px;
     width: 20px;
-    background-color: var(--grey);
+    background-color: var(--grey-100);
     border-radius: 3px;
   }
 }
@@ -121,8 +121,8 @@
   }
 
   input[type="radio"]:checked + label {
-    color: var(--white, #fff);
-    background: var(--accent-medium-blue);
+    color: var(--white);
+    background: var(--orange, #eb5525);
 
     .icon {
       path {
@@ -153,12 +153,12 @@
 
 /* On mouse-over, add a grey background color */
 .main-checkbox-container:hover input ~ .checkmark {
-  background-color: var(--dark-grey);
+  background-color: var(--orange-200);
 }
 
 /* When the checkbox is checked, add a blue background */
 .main-checkbox-container input:checked ~ .checkmark {
-  background-color: var(--accent-medium-blue);
+  background-color: var(--orange);
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -213,14 +213,4 @@
 
 .close::after {
   transform: rotate(-45deg);
-}
-
-.days {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-
-  .text-sm {
-    color: var(--dark-grey);
-  }
 }
