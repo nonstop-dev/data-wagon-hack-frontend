@@ -12,5 +12,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
       this.mainService.getStations().subscribe((resp) => console.log(resp));
+      this.mainService.getStationById(32).subscribe((resp) => console.log(resp));
+      this.mainService.getWagons({ page: 2, size: 100}).subscribe((resp) => console.log(resp));
   }
 }
