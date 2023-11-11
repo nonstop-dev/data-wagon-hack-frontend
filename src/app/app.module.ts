@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { WagonCardComponent } from './components/wagon-card/wagon-card.component';
 import { SearchCardComponent } from './components/search-card/search-card.component';
 import { HomeComponent } from './pages/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HomeComponent } from './pages/home/home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
