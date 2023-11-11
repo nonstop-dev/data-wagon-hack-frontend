@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.mainService.getStations().subscribe((stations: IStation[]) => {
+    this.mainService.getStations({ page: 0, size: 500 }).subscribe((stations: IStation[]) => {
       this.stations = stations;
       console.log(stations);
       this.cdr.markForCheck();

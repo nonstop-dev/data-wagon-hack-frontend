@@ -5,16 +5,16 @@ import { Observable } from 'rxjs';
 import { IPageParams, IStation, IWagon } from './types';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MainService {
-
-  constructor(private readonly http: HttpClient) { }
+  constructor(private readonly http: HttpClient) {}
 
   private readonly url = environment.apiUrl;
 
-  getStations(): Observable<IStation[]> {
-    return this.http.get<IStation[]>(this.url + '/stations');
+  getStations(paramsObject?: IPageParams): Observable<IStation[]> {
+    const params = new HttpParams({ fromObject: paramsObject });
+    return this.http.get<IStation[]>(this.url + '/stations', { params: params });
   }
 
   getStationById(id: number | string): Observable<IStation> {
