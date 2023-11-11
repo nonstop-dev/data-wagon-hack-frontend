@@ -6,7 +6,7 @@
   line-height: 24px;
   color: var(--white);
   border-radius: 8px;
-  background: linear-gradient(90deg, #1e4bd2 0%, #008bf9 102.5%);
+  background: var(--orange, #eb5525);
   padding: 12px 20px;
   transition: background-color ease-in-out 0.3s;
   outline: none;
@@ -14,24 +14,21 @@
   cursor: pointer;
 
   &.main-btn_gray {
-    color: var(--accent-retail-blue);
-    background: var(--light-grey);
+    background: var(--grey-100);
   }
 
   &:hover {
-    color: var(--white);
-    background: var(--buttons-hover-gradient, linear-gradient(90deg, #0a2896 0%, #004cf8 102.5%));
+    background: var(--orange-400, #c43000);
   }
 
   &:focus {
-    color: var(--white);
-    background: var(--accent-retail-blue, #0a2896);
+    background: var(--orange-200, #f27e59);
   }
 }
 
 .main-btn:disabled,
 .main-btn[disabled] {
-  background: var(--light-grey, #f3f7fa);
+  background: var(--grey-100);
   color: var(--input-grey);
 }
 
@@ -41,7 +38,7 @@
   border-radius: 8px;
   border: 1px solid var(--stroke-grey, #dce0eb);
   background: var(--white, #fff);
-  color: var(--grey-300, #bbb2af);
+  color: var(--orange, #eb5525);
   outline: none;
 
   &:focus,
@@ -64,7 +61,7 @@
 .chips-radio-label {
   padding: 8px 16px;
   border-radius: 8px;
-  background: var(--light-grey, #f3f7fa);
+  background: var(--grey-100);
   user-select: none;
   cursor: pointer;
 }
