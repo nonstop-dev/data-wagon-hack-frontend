@@ -1,5 +1,6 @@
-@import "./app/scss/typography";
-@import "./app/scss/controls";
+@import './app/scss/typography';
+@import './app/scss/controls';
+@import '~leaflet/dist/leaflet.css';
 
 :root {
   --black: #121212;
@@ -52,7 +53,7 @@ a {
   font-size: 18px;
   transition: color 0.1s ease-in-out;
 
-  &[role="button"] {
+  &[role='button'] {
     cursor: pointer;
   }
 }
