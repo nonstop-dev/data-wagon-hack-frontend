@@ -1,1 +1,62 @@
-<p>wagon-card works!</p>
+<ng-container *ngIf="currTemplate === 'train'">
+  <div class="container">
+    <h2 class="wagon-heading">Поезд 1432</h2>
+    <p class="text-md">
+      Из <strong>Санкт-Петербург</strong> Московский вокзал в <strong>Москва</strong> Ленинградский вокзал
+    </p>
+    <div class="slider-info">
+      <div class="slidecontainer">
+        <input type="range" min="1" max="100" value="25" class="slider" id="way" disabled />
+      </div>
+      <span class="text-sm">В пути: 8 часов 22 минуты</span>
+    </div>
+    <div class="controls-checkbox">
+      <label class="main-checkbox-container text-md" for="loading" tabindex="0">
+        Показать все станции на пути
+        <input type="checkbox" id="loading" name="loading" class="main-checkbox" />
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <h3 class="wagons-heading">Вагоны ПГК</h3>
+    <div class="text-sm">Группировать по:</div>
+    <div class="main-radio-group">
+      <div class="main-radio">
+        <input type="radio" id="type" name="wagon" value="type" checked />
+        <label for="type" class="main-radio-label" tabindex="0">типу</label>
+      </div>
+      <div class="main-radio">
+        <input type="radio" id="destination" name="wagon" value="destination" />
+        <label for="destination" class="main-radio-label" tabindex="0">станции назначения</label>
+      </div>
+    </div>
+    <div class="text-md">Полувагоны:</div>
+    <div class="wagons">
+      <button class="wagon-tile">2</button>
+      <button class="wagon-tile">6</button>
+      <button class="wagon-tile">12</button>
+      <button class="wagon-tile">18</button>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="currTemplate === 'wagon'">
+  <div class="container">
+    <h2 class="wagon-heading">Поезд 1432</h2>
+    <p class="text-md">
+      Из <strong>Санкт-Петербург</strong> Московский вокзал в <strong>Москва</strong> Ленинградский вокзал
+    </p>
+    <div class="slider-info">
+      <div class="slidecontainer">
+        <input type="range" min="1" max="100" value="25" class="slider" id="way" disabled />
+      </div>
+      <span class="text-sm">В пути: 8 часов 22 минуты</span>
+    </div>
+    <div class="controls-checkbox">
+      <label class="main-checkbox-container text-md" for="loading" tabindex="0">
+        Показать все станции на пути
+        <input type="checkbox" id="loading" name="loading" class="main-checkbox" />
+        <span class="checkmark"></span>
+      </label>
+    </div>
+  </div>
+</ng-container>
