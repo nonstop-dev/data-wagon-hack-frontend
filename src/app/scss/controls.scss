@@ -25,7 +25,9 @@
   }
 
   &:focus {
+    color: var(--white, #fff);
     background: var(--orange-200, #f27e59);
+    border: 2px solid transparent;
   }
 }
 
