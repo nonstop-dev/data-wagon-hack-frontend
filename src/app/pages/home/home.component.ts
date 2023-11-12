@@ -11,10 +11,9 @@ import { IStation, IWagon } from 'src/app/services/types';
 export class HomeComponent implements OnInit {
   stations: IStation[] = [];
   wagons: IWagon[] = [];
-  isTrainSelected: boolean = false;
 
   constructor(
-    private readonly mainService: MainService,
+    protected mainService: MainService,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -88,9 +87,5 @@ export class HomeComponent implements OnInit {
         isPgk: true,
       },
     ];
-  }
-
-  onTrainSelect() {
-    this.isTrainSelected = true;
   }
 }

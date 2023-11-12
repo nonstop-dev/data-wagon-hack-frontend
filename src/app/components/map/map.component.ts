@@ -2,6 +2,7 @@ import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import * as L from 'leaflet';
 import { icon, Marker } from 'leaflet';
 import 'leaflet-providers';
+import { MainService } from 'src/app/services/main.service';
 import { IStation, IWagon } from 'src/app/services/types';
 
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
@@ -64,7 +65,7 @@ export class MapComponent implements OnInit, OnChanges {
     iconAnchor: [32, 32],
   });
 
-  constructor() {}
+  constructor(protected mainService: MainService) {}
 
   ngOnInit(): void {
     this.initMap();
@@ -102,7 +103,7 @@ export class MapComponent implements OnInit, OnChanges {
         L.marker([wagon.latitude, wagon.longitude] as L.LatLngExpression, {
           icon: wagon.isPgk ? this.wagonIcon : this.wagonBlackIcon,
         }).on('click', () => {
-          alert('ВЫПУСТИ МЕНЯ!');
+          this.mainService.setCardTemplate();
         })
       )
       .forEach(x => x.addTo(this.map));

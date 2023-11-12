@@ -1,5 +1,3 @@
-<app-map [stations]="stations" [wagons]="wagons" (click)="onTrainSelect()"></app-map>
-<app-search-card *ngIf="!isTrainSelected"></app-search-card>
-<ng-container *ngIf="isTrainSelected">
-  <app-wagon-card></app-wagon-card>
-</ng-container>
+<app-map [stations]="stations" [wagons]="wagons"></app-map>
+<app-search-card *ngIf="(mainService.cardType | async) === ''"></app-search-card>
+<app-wagon-card></app-wagon-card>
