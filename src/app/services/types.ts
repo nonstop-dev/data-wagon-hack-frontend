@@ -4,6 +4,13 @@ export interface IPageParams {
   size: number;
 }
 
+export interface ISearchParams {
+  [key: string]: any;
+  latitude: number;
+  longitude: number;
+  radius: number;
+}
+
 export interface IStation {
   id: number;
   latitude: number;

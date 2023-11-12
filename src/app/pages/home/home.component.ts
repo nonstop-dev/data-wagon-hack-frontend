@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.mainService
-      .getStations({ page: 10, size: 500 })
+      .searchStations({ latitude: 55.75863343136711, longitude: 37.63416378863461, radius: 0.07 })
       .pipe(first())
       .subscribe((stations: IStation[]) => {
         this.stations = stations;
