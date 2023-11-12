@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { first } from 'rxjs';
 import { MainService } from 'src/app/services/main.service';
-import { IStation } from 'src/app/services/types';
+import { IStation, IWagon } from 'src/app/services/types';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,7 @@ import { IStation } from 'src/app/services/types';
 })
 export class HomeComponent implements OnInit {
   stations: IStation[] = [];
+  wagons: IWagon[] = [];
 
   constructor(
     private readonly mainService: MainService,
@@ -16,12 +18,22 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.mainService.getStations({ page: 0, size: 500 }).subscribe((stations: IStation[]) => {
-      this.stations = stations;
-      console.log(stations);
-      this.cdr.markForCheck();
-    });
-    // this.mainService.getStationById(32).subscribe(resp => console.log(resp));
-    // this.mainService.getWagons({ page: 2, size: 100 }).subscribe(resp => console.log(resp));
+    this.mainService
+      .searchStations({ latitude: 55.75863343136711, longitude: 37.63416378863461, radius: 0.07 })
+      .pipe(first())
+      .subscribe((stations: IStation[]) => {
+        this.stations = stations;
+        // console.log(stations);
+        this.cdr.markForCheck();
+      });
+
+    this.mainService
+      .getWagons({ page: 0, size: 15000 })
+      .pipe(first())
+      .subscribe(wagons => {
+        console.log(wagons);
+        this.wagons = wagons;
+        this.cdr.markForCheck();
+      });
   }
 }

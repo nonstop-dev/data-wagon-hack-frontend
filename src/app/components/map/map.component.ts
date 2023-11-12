@@ -2,7 +2,7 @@ import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import * as L from 'leaflet';
 import { icon, Marker } from 'leaflet';
 import 'leaflet-providers';
-import { IStation } from 'src/app/services/types';
+import { IStation, IWagon } from 'src/app/services/types';
 
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/marker-icon.png';
@@ -25,6 +25,7 @@ Marker.prototype.options.icon = iconDefault;
 })
 export class MapComponent implements OnInit, OnChanges {
   @Input() stations: IStation[] = [];
+  @Input() wagons: IWagon[] = [];
   private map: L.Map | any;
   //   private tileLayer: L.TileLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   //     maxZoom: 19,
@@ -43,6 +44,12 @@ export class MapComponent implements OnInit, OnChanges {
     iconAnchor: [25, 25],
   });
 
+  private wagonIcon = new L.Icon({
+    iconUrl: 'assets/wagon.svg',
+    iconSize: [64, 64],
+    iconAnchor: [32, 32],
+  });
+
   constructor() {}
 
   ngOnInit(): void {
@@ -50,22 +57,39 @@ export class MapComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
-    this.drawMarkers();
+    this.drawStations();
+    this.drawWagons();
   }
 
-  private drawMarkers() {
+  private drawStations() {
     if (!this.stations || this.stations.length == 0) return;
 
     this.stations
       .filter(station => station.latitude != null && station.longitude != null)
-      .map(station => [station.latitude, station.longitude])
-      .map(station => L.marker(station as L.LatLngExpression, { icon: this.stationIcon }))
+      .map(station =>
+        L.marker([station.latitude, station.longitude] as L.LatLngExpression, {
+          icon: this.stationIcon,
+          title: station.name,
+        })
+      )
+      .forEach(x => x.addTo(this.map));
+  }
+
+  private drawWagons() {
+    if (!this.wagons || this.wagons.length == 0) return;
+
+    this.wagons
+      .map(wagon =>
+        L.marker([wagon.latitude, wagon.longitude] as L.LatLngExpression, {
+          icon: this.wagonIcon,
+        })
+      )
       .forEach(x => x.addTo(this.map));
   }
 
   private initMap(): void {
     this.map = L.map('map', {
-      center: [54.0993, 34.3649],
+      center: [59.881214, 29.90676],
       zoom: 12,
       attributionControl: false,
     });

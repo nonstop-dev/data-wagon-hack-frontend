@@ -4,6 +4,13 @@ export interface IPageParams {
   size: number;
 }
 
+export interface ISearchParams {
+  [key: string]: any;
+  latitude: number;
+  longitude: number;
+  radius: number;
+}
+
 export interface IStation {
   id: number;
   latitude: number;
@@ -19,4 +26,6 @@ export interface IWagon {
   trainNumber: string;
   wagonDestination: number;
   wagonId: number;
+  latitude: number;
+  longitude: number;
 }
