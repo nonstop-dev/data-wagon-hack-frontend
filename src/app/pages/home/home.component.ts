@@ -11,6 +11,7 @@ import { IStation, IWagon } from 'src/app/services/types';
 export class HomeComponent implements OnInit {
   stations: IStation[] = [];
   wagons: IWagon[] = [];
+  isTrainSelected: boolean = false;
 
   constructor(
     private readonly mainService: MainService,
@@ -36,8 +37,8 @@ export class HomeComponent implements OnInit {
     //     this.wagons = wagons;
     //     this.cdr.markForCheck();
     //   });
-    const lat = 54.81593;
-    const lon = 35.79416;
+    const lat = 54.901;
+    const lon = 35.658;
     this.wagons = [
       {
         arrivalTime: 'Wed, 30 Aug 2023 01:02:00 GMT',
@@ -49,6 +50,7 @@ export class HomeComponent implements OnInit {
         trainNumber: '335',
         wagonDestination: 61,
         wagonId: 5266,
+        isPgk: true,
       },
       {
         arrivalTime: 'Wed, 30 Aug 2023 05:26:00 GMT',
@@ -60,6 +62,7 @@ export class HomeComponent implements OnInit {
         trainNumber: '335',
         wagonDestination: 61,
         wagonId: 5266,
+        isPgk: true,
       },
       {
         arrivalTime: 'Wed, 30 Aug 2023 05:05:00 GMT',
@@ -82,7 +85,12 @@ export class HomeComponent implements OnInit {
         trainNumber: '471',
         wagonDestination: 61,
         wagonId: 5266,
+        isPgk: true,
       },
     ];
+  }
+
+  onTrainSelect() {
+    this.isTrainSelected = true;
   }
 }

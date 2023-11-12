@@ -52,6 +52,18 @@ export class MapComponent implements OnInit, OnChanges {
     iconAnchor: [32, 32],
   });
 
+  private wagonEmptyIcon = new L.Icon({
+    iconUrl: '',
+    iconSize: [64, 64],
+    iconAnchor: [32, 32],
+  });
+
+  private wagonBlackIcon = new L.Icon({
+    iconUrl: 'assets/wagon_black.svg',
+    iconSize: [64, 64],
+    iconAnchor: [32, 32],
+  });
+
   constructor() {}
 
   ngOnInit(): void {
@@ -72,12 +84,12 @@ export class MapComponent implements OnInit, OnChanges {
         this.latlngs.push([station.latitude, station.longitude]);
         return L.marker([station.latitude, station.longitude] as L.LatLngExpression, {
           icon: this.stationIcon,
-          title: station.name,
+          title: `${station.name} ${station.id}`,
         });
       })
       .forEach(x => x.addTo(this.map));
     this.latlngs.length = this.latlngs.length - 25;
-    var polyline = L.polyline(this.latlngs, { color: '#FFAB09' }).addTo(this.map);
+    var polyline = L.polyline(this.latlngs, { color: '#55B7A0', weight: 7 }).addTo(this.map);
   }
 
   private drawWagons() {
@@ -87,7 +99,7 @@ export class MapComponent implements OnInit, OnChanges {
       .filter(wagon => wagon.latitude != null && wagon.longitude != null)
       .map(wagon =>
         L.marker([wagon.latitude, wagon.longitude] as L.LatLngExpression, {
-          icon: this.wagonIcon,
+          icon: wagon.isPgk ? this.wagonIcon : this.wagonBlackIcon,
         }).on('click', () => {
           alert('ВЫПУСТИ МЕНЯ!');
         })
