@@ -85,6 +85,7 @@ export class MapComponent implements OnInit, OnChanges {
         return L.marker([station.latitude, station.longitude] as L.LatLngExpression, {
           icon: this.stationIcon,
           title: `${station.name} ${station.id}`,
+          alt: station.id == 76 ? 'hideMarker' : `${station.name}`,
         });
       })
       .forEach(x => x.addTo(this.map));
