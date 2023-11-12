@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { IPageParams, ISearchParams, IStation, IWagon } from './types';
 
 @Injectable({
@@ -11,6 +11,7 @@ export class MainService {
   constructor(private readonly http: HttpClient) {}
 
   private readonly url = environment.apiUrl;
+  public cardType = new BehaviorSubject('');
 
   getStations(paramsObject?: IPageParams): Observable<IStation[]> {
     const params = new HttpParams({ fromObject: paramsObject });
@@ -29,5 +30,13 @@ export class MainService {
   searchStations(paramsObject?: ISearchParams): Observable<IStation[]> {
     const params = new HttpParams({ fromObject: paramsObject });
     return this.http.get<IStation[]>(this.url + '/stations/search', { params: params });
+  }
+
+  public setCardTempalate() {
+    if (this.cardType.getValue() === '') {
+      this.cardType.next('train');
+    } else if (this.cardType.getValue() === 'train') {
+      this.cardType.next('wagon');
+    }
   }
 }
