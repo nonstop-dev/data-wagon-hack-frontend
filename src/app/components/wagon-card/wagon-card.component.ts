@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WagonCardComponent implements OnInit {
   constructor() {}
-  public currTemplate = 'train';
+  public currTemplate = 'wagon';
 
   ngOnInit(): void {}
 }

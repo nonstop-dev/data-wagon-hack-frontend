@@ -20,7 +20,7 @@
 }
 
 p {
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .slidecontainer {
@@ -71,4 +71,24 @@ p {
   outline: none;
   border: 1px solid transparent;
   cursor: pointer;
+}
+
+.unmuted {
+  margin-bottom: 16px;
+}
+
+.muted {
+  margin-bottom: 30px;
+
+  .wagon-heading {
+    color: var(--orange-200, #f27e59);
+  }
+
+  p {
+    color: var(--grey-500, #595959);
+  }
+}
+
+.main-btn {
+  width: 100%;
 }

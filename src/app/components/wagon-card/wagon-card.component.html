@@ -41,7 +41,7 @@
 
 <ng-container *ngIf="currTemplate === 'wagon'">
   <div class="container">
-    <h2 class="wagon-heading">Поезд 1432</h2>
+    <h2 class="wagon-heading">Вагон номер 12</h2>
     <p class="text-md">
       Из <strong>Платформа "Летающий Звездный Шлейф"</strong> в <strong>Платформа "Электромагнитный Курган"</strong>
     </p>
@@ -58,5 +58,16 @@
         <span class="checkmark"></span>
       </label>
     </div>
+    <h3 class="wagons-heading">Маршрут:</h3>
+    <div class="unmuted">
+      <h2 class="wagon-heading text-md">Поезд 1432</h2>
+      <p class="text-md">Платформа "Летающий Звездный Шлейф" — Платформа "Электромагнитный Курган"</p>
+      <span class="text-sm">8 часов 30 минут до перецепки</span>
+    </div>
+    <div class="muted">
+      <h2 class="wagon-heading text-md">Поезд 1432</h2>
+      <p class="text-md">Платформа 9 и 3/4 — Станция Примерово номер 10</p>
+    </div>
+    <button class="main-btn second-btn">Уменьшить масштаб</button>
   </div>
 </ng-container>
