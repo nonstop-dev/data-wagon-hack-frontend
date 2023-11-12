@@ -32,11 +32,13 @@ export class MainService {
     return this.http.get<IStation[]>(this.url + '/stations/search', { params: params });
   }
 
-  public setCardTempalate() {
+  public setCardTemplate() {
     if (this.cardType.getValue() === '') {
       this.cardType.next('train');
     } else if (this.cardType.getValue() === 'train') {
       this.cardType.next('wagon');
+    } else if (this.cardType.getValue() === 'wagon') {
+      this.cardType.next('');
     }
   }
 }

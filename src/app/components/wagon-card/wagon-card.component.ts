@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MainService } from 'src/app/services/main.service';
 
 @Component({
   selector: 'app-wagon-card',
@@ -6,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./wagon-card.component.scss'],
 })
 export class WagonCardComponent implements OnInit {
-  constructor() {}
-  public currTemplate = 'wagon';
+  constructor(protected mainService: MainService) {}
+  public currTemplate = '';
 
   ngOnInit(): void {}
 }

@@ -1,4 +1,4 @@
-<ng-container *ngIf="currTemplate === 'train'">
+<ng-container *ngIf="(mainService.cardType | async) === 'train'">
   <div class="container">
     <h2 class="wagon-heading">Поезд 1432</h2>
     <p class="text-md">
@@ -39,7 +39,7 @@
   </div>
 </ng-container>
 
-<ng-container *ngIf="currTemplate === 'wagon'">
+<ng-container *ngIf="(mainService.cardType | async) === 'wagon'">
   <div class="container">
     <h2 class="wagon-heading">Вагон номер 12</h2>
     <p class="text-md">
