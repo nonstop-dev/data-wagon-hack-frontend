@@ -28,4 +28,5 @@ export interface IWagon {
   wagonId: number;
   latitude: number;
   longitude: number;
+  isPgk?: boolean;
 }

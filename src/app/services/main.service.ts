@@ -28,6 +28,6 @@ export class MainService {
 
   searchStations(paramsObject?: ISearchParams): Observable<IStation[]> {
     const params = new HttpParams({ fromObject: paramsObject });
-    return this.http.get<IStation[]>(this.url + '/stations', { params: params });
+    return this.http.get<IStation[]>(this.url + '/stations/search', { params: params });
   }
 }

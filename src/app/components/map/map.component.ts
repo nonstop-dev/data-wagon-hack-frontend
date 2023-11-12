@@ -38,6 +38,8 @@ export class MapComponent implements OnInit, OnChanges {
   // in case of fire this is free and works without an api key
   // L.tileLayer.provider('Stadia.AlidadeSmooth').addTo(this.map);
 
+  private latlngs: L.LatLngExpression[] = [];
+
   private stationIcon = new L.Icon({
     iconUrl: 'assets/train_station.svg',
     iconSize: [50, 50],
@@ -66,22 +68,28 @@ export class MapComponent implements OnInit, OnChanges {
 
     this.stations
       .filter(station => station.latitude != null && station.longitude != null)
-      .map(station =>
-        L.marker([station.latitude, station.longitude] as L.LatLngExpression, {
+      .map(station => {
+        this.latlngs.push([station.latitude, station.longitude]);
+        return L.marker([station.latitude, station.longitude] as L.LatLngExpression, {
           icon: this.stationIcon,
           title: station.name,
-        })
-      )
+        });
+      })
       .forEach(x => x.addTo(this.map));
+    this.latlngs.length = this.latlngs.length - 25;
+    var polyline = L.polyline(this.latlngs, { color: '#FFAB09' }).addTo(this.map);
   }
 
   private drawWagons() {
     if (!this.wagons || this.wagons.length == 0) return;
 
     this.wagons
+      .filter(wagon => wagon.latitude != null && wagon.longitude != null)
       .map(wagon =>
         L.marker([wagon.latitude, wagon.longitude] as L.LatLngExpression, {
           icon: this.wagonIcon,
+        }).on('click', () => {
+          alert('ВЫПУСТИ МЕНЯ!');
         })
       )
       .forEach(x => x.addTo(this.map));
@@ -89,7 +97,7 @@ export class MapComponent implements OnInit, OnChanges {
 
   private initMap(): void {
     this.map = L.map('map', {
-      center: [59.881214, 29.90676],
+      center: [54.80863, 35.79416],
       zoom: 12,
       attributionControl: false,
     });
